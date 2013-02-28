@@ -1,0 +1,13 @@
+= simple_form_for([@entry,@address]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.collection_select (:address_type_id, AddressType.all, :id, :name)  
+    = f.input :street
+    = f.input :city
+    = f.input :state
+    = f.input :zip
+  
+
+  .form-actions
+    = f.button :submit

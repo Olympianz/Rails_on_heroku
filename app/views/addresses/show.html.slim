@@ -1,0 +1,25 @@
+p#notice = notice
+
+p
+  strong AddressType:
+  =@address.address_type.name
+
+p
+  strong Street:
+  = @address.street
+p
+  strong City:
+  = @address.city
+p
+  strong State:
+  = @address.state
+p
+  strong Zip:
+  = @address.zip
+
+
+
+
+= link_to 'Edit', edit_entry_address_path(@entry, @address)
+'|
+= link_to 'Back', entry_addresses_url(@entry)

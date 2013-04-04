@@ -1,10 +1,23 @@
 = simple_form_for(@entry) do |f|
   = f.error_notification
 
-  .form-inputs
+  fieldset.form-inputs
+    legend Name
     = f.input :first_name
     = f.input :last_name
     = f.input :email
+  
+  =f.simple_fields_for :addresses do |f|
+    = render 'addresses/form' 
+
+  fieldset.form-inputs
+    legend Address
+
+  fieldset.form-inputs
+    legend Email
+
+  fieldset.form-inputs
+    legend Web
 
   .form-actions
     = f.button :submit

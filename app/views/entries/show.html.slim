@@ -1,11 +1,9 @@
 p#notice = notice
 
 p
-  strong First name:
-  = @entry.first_name
-p
-  strong Last name:
-  = @entry.last_name
+  strong Full name:
+  = @entry.first_name + @entry.last_name
+
 p
   strong Email:
   = @entry.email

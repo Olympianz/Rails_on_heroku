@@ -1,14 +1,12 @@
-= simple_form_for([@entry,@address]) do |f|
+= simple_form_for(@entry) do |f|
   = f.error_notification
-
-  .form-inputs
+    
+    fieldset.form-inputs
+      legend Address
     = f.collection_select :address_type_id, AddressType.all, :id, :name  
     = f.input :street
     = f.input :city
     = f.input :state
     = f.input :zip
-  
+end    
 
-  .form-actions
-    = f.button :submit
-end

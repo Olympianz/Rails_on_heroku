@@ -1,5 +1,4 @@
-class AddressType < ActiveRecord::Base
-    has_many :addresses    
+class AddressType < ActiveRecord::Base   
     attr_accessible :name
 end
 

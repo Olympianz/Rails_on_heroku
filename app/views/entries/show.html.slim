@@ -1,15 +1,37 @@
 p#notice = notice
 
-p
-  strong Full name:
-  = @entry.first_name + @entry.last_name
+h1 #{@entry.full_name}
 
-p
-  strong Email:
-  = @entry.email
 
-= link_to 'Edit', edit_entry_path(@entry)
-'|
-= link_to 'Back', entries_path
-'|
-= link_to 'Show Addresses', entry_addresses_path(@entry)
+h2 Addresses
+- @entry.addresses.each do |address|
+  ul
+    li 
+      strong = address.address_type.name
+      ':      
+      = address.street.titleize
+      ',
+      = address.city
+      ',
+      = address.state
+      ' 
+      = address.zip
+    
+
+h2 Emails
+- @entry.emails.each do |email|
+  ul
+    li = email.address_type.name
+    = link_to email.name, email.to_email
+
+h2 Webs
+- @entry.webs.each do |web|
+  ul
+    li = web.address_type.name
+    = link_to web.name, web.to_url
+
+table
+  tr
+    td = link_to 'Edit', edit_entry_path(@entry)
+    td = link_to 'Back', entries_path
+    td = link_to 'Destroy', @entry, :confirm => 'Are you sure?', :method => :delete

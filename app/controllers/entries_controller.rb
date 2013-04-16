@@ -1,12 +1,12 @@
 class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
+ 
   def index
     @entries = Entry.all
-
+    
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @entries }
+        format.html # index.html.erb
     end
   end
 
@@ -17,8 +17,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @entry }
+        format.html # show.html.erb
     end
   end
 
@@ -26,23 +25,11 @@ class EntriesController < ApplicationController
   # GET /entries/new.json
   def new
     @entry = Entry.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @entry }
-    end
+    
+   respond_to do |format|
+     format.html # new.html.erb
+   end 
   end
-
-  # Email parse function
-#  def valid_email( value )
-#    begin
-#      return false if value == ''
-#      parsed = Mail::Addresss.new( value )
-#      return parsed.address == value && parsed.local != parsed.address
-#    rescue Mail::Field::ParseError
-#      return false
-#     end
-#  end
 
   # GET /entries/1/edit
   def edit
@@ -53,16 +40,15 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(params[:entry])
-
+    flash[:notice] = "Entry created" if @entry.save
+    
     respond_to do |format|
-      if @entry.save # && valid_email( @entry.email )
-        format.html { redirect_to @entry, :notice => 'Entry was successfully created.' }
-        format.json { render :json => @entry, :status => :created, :location => @entry }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @entry.errors, :status => :unprocessable_entity }
-      end
-    end
+        if @entry.save
+            format.html { redirect_to @entry, :notice => 'Product was successfully created.'}
+        else
+            format.html { render :action => "new" }
+        end
+    end    
   end
 
   # PUT /entries/1

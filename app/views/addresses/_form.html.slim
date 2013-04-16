@@ -1,12 +1,13 @@
-= simple_form_for(@entry) do |f|
-  = f.error_notification
-    
-    fieldset.form-inputs
-      legend Address
-    = f.collection_select :address_type_id, AddressType.all, :id, :name  
+.nested-fields
+  fieldset
+    legend Address
+    = f.association :address_type
     = f.input :street
     = f.input :city
     = f.input :state
     = f.input :zip
-end    
+    = f.check_box :_destroy
+    = f.label :_destroy, "Remove"
+     
+    
 

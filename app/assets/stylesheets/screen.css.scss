@@ -1,0 +1,25 @@
+@import "susy";
+@import "normalize";
+
+$total-columns  : 12;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+body
+{
+background-color:lightyellow; 
+@include container;
+
+header, footer { clear: both; }
+
+nav { 
+background-color: grey;
+@include span-columns(3,12); 
+
+}
+
+article { 
+background-color: green;
+@include span-columns(6,12); }
+}

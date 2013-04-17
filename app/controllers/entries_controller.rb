@@ -1,6 +1,13 @@
 class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
+
+  before_filter :get_entries
+
+  def get_entries
+      @entries = Entry.find(:all, :order => 'last_name')
+  end
+
  
   def index
     @entries = Entry.all

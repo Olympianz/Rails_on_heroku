@@ -4,8 +4,10 @@ gem 'rails', '~> 3.2'
 gem 'slim'
 gem 'simple_form'
 
-gem 'compass'
+gem 'compass', '>= 0.12.2'
+gem 'compass-rails', '>= 1.0.3'
 gem 'compass-normalize'
+gem "susy"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

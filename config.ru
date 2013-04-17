@@ -3,3 +3,4 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run AddressBook::Application
 require 'compass-normalize'
+require "susy"

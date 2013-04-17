@@ -1,10 +1,12 @@
 h1 Chong's address book
-
+/
 h3 Contacts
-
+/
 - @entries.each do |entry|
   ul
     li = link_to entry.full_name, entry
-br
+/br
 
 = link_to 'New Entry', new_entry_path
+
+p Welcome to my homepage of Addressbook!

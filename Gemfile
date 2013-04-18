@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2'
-gem 'slim'
+gem 'slim', '~> 1.3.0'
 gem 'simple_form'
 gem 'faker'
 

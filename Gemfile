@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2'
 gem 'slim'
 gem 'simple_form'
+gem 'faker'
 
 gem 'compass', '>= 0.12.2'
 gem 'compass-rails', '>= 1.0.3'

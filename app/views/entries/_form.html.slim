@@ -3,6 +3,7 @@
   - @entry.addresses.build
   - @entry.emails.build
   - @entry.webs.build
+  - @entry.phones.build
 
   .form-inputs
     = f.input :first_name
@@ -14,6 +15,8 @@
       = render 'urls/email_form', :f => email
     = f.simple_fields_for :webs do |web|
       = render 'urls/web_form', :f => web
+    = f.simple_fields_for :phones do |phone|
+      = render 'urls/phone_form', :f => phone
 
   .form-actions
     = f.button :submit

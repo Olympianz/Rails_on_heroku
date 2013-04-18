@@ -10,14 +10,25 @@ body
   header 
     h1 ChongYue-AddressBook
 
-  nav
+  nav class="left_nav"
     h2 Contacts
-    = render :partial => "entries/index", :locals => { :entries =>  @entries}
-    div
-      = link_to "New Entry", new_entry_path
+    div class="context"
+      = render :partial => "entries/index", :locals => { :entries =>  @entries}
+  table
+    tr
+      td = link_to "New Entry", new_entry_path
+      td
+      td = link_to "Home", entries_path
   article
     #notice = notice
-    = yield
+    = yield 
+
+  nav class="right_nav"
+    h2 Messages
+    p Please leave your message to him/her!
+    = yield :head 
+
+
 
   footer
     | &copy Chong.Y

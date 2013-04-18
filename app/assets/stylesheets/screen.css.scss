@@ -6,20 +6,38 @@ $column-width   : 4em;
 $gutter-width   : 1em;
 $grid-padding   : $gutter-width;
 
+
+.context
+{
+    text-align: left;
+    color:#FF9933;
+}
+
+
+
 body
 {
-background-color:lightyellow; 
+background-color:#f8f8f8; 
 @include container;
 
 header, footer { clear: both; }
 
-nav { 
+.left_nav { 
+height: 45em;
+overflow: scroll;
 background-color: grey;
-@include span-columns(3,12); 
+@include span-columns(3,12);}
 
-}
 
 article { 
-background-color: green;
+background-color: #888888;
 @include span-columns(6,12); }
+
+.right_nav {
+height:45em;
+@include span-columns(3 omega, 12);
+overflow: scroll; }
+
+header 
+{background-color: #888888;}
 }

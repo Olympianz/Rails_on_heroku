@@ -1,0 +1,10 @@
+= simple_form_for(@entry) do |f|
+  - @entry.comments.create
+
+  .form-inputs
+    = f.simple_fields_for :comments do |comment|
+      = render 'comments/subform', :f => comment
+
+  .form-actions
+    = f.button :submit
+

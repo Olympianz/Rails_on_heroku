@@ -1,12 +1,12 @@
-h1 Chong's address book
-/
-h3 Contacts
-/
-- @entries.each do |entry|
+
+h3 Welcome to homepage of Chong's Addressbook!
+
+p
+ 
+  = "Here is what you can do with it:"
   ul
-    li = link_to entry.full_name, entry
-/br
+    li = "You can check contacts on the left."
+    li = "You can create new entry and back to home by using navigation buttons on top."
+    li = "You can left your comment on each individual."
 
-= link_to 'New Entry', new_entry_path
-
-p Welcome to my homepage of Addressbook!
+  = "However, I am still working on CSS and making comments better organized, thanks!"

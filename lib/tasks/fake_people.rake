@@ -4,7 +4,8 @@ namespace :db do
     desc "create some fake data"
     
     task :fake_people => :environment do
-        
+       
+       Entry.destroy_all 
         
        50.times do
            entry = Entry.create!    :first_name => Faker::Name.first_name,
@@ -32,7 +33,13 @@ namespace :db do
                :address_type_id => rand(1..3),
                :entry_id => entry.id
            )
-
+            
+           entry_phones = Phone.create!(
+                :name => Faker::PhoneNumber.phone_number,
+                :type => "Phone",
+                :address_type_id => rand(1..3),
+                :entry_id => entry.id
+           )
         end
     end
 end

@@ -1,4 +1,4 @@
-p#notice = notice
+/p#notice = notice
 
 h1 #{@entry.full_name}
 
@@ -30,8 +30,20 @@ h2 Webs
     li = web.address_type.name
     = link_to web.name, web.to_url
 
+h2 Phone Numbers
+- @entry.phones.each do |phone|
+  ul
+    li = phone.address_type.name
+    = link_to phone.name, phone.to_phone
+
+- content_for :head do 
+  == render 'comments/form'
+  - @entry.comments.each do |comment|
+    ul
+      li = comment.content
+    = comment.comment_time
+
 table
   tr
     td = link_to 'Edit', edit_entry_path(@entry)
-    td = link_to 'Back', entries_path
     td = link_to 'Destroy', @entry, :confirm => 'Are you sure?', :method => :delete

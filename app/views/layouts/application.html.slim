@@ -1,36 +1,27 @@
 DOCTYPE html
 html
-head
-  title = 'Chong-AddressBook'
-  = stylesheet_link_tag   "screen"   
-  = javascript_include_tag "application" 
-  = csrf_meta_tags 
+  head
+    title = 'Chong-AddressBook'
+    = stylesheet_link_tag "application", media: "all"   
+    = csrf_meta_tags 
 
-body
-  header 
-    h1 ChongYue-AddressBook
-
-  nav class="left_nav"
-    h2 Contacts
-    div class="context"
-      = render :partial => "entries/index", :locals => { :entries =>  @entries}
-  table
-    tr
-      td = link_to "New Entry", new_entry_path
-      td
-      td = link_to "Home", entries_path
-  article
-    #notice = notice
-    = yield 
-
-  nav class="right_nav"
-    h2 Messages
-    p Please leave your message to him/her!
-    = yield :head 
-
-
-
-  footer
-    | &copy Chong.Y
+  body
+    #content
+      header  
+        h1 ChongYue-AddressBook
+      nav 
+        h2 Contacts
+        = render :partial => "entries/index", :locals => { :entries =>  @entries}
+      table
+        tr
+          td = link_to "New Entry", new_entry_path
+          td
+          td = link_to "Home", entries_path
+    
+      article
+        #notice = notice
+        = yield 
+      footer
+        | &copy Chong.Y
 
 

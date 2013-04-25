@@ -133,15 +133,15 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
-  compass
+  compass (>= 0.12.2)
   compass-normalize
-  compass-rails
+  compass-rails (>= 1.0.3)
   faker
   jquery-rails
   json
   pg
   rails (~> 3.2)
-  sass-rails
+  sass-rails (~> 3.2)
   simple_form
   slim
   slim-rails

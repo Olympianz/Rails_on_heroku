@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   respond_to :html
 
   before_filter :get_entries
-  before_filter :find_entry,     only: [:show, :edit, :update]
+  before_filter :find_entry,     only: [:show, :edit, :update,:destroy]
   before_filter :build_children, only: [:new, :edit]
   
   def index
@@ -41,7 +41,7 @@ class EntriesController < ApplicationController
   end
   
   def destroy
-    Entry.find(params[:id]).destroy
+    @entry.destroy
     flash_notice('deleted')
     redirect_to entries_url
   end

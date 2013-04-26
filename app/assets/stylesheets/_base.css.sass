@@ -1,0 +1,23 @@
+@import susy
+
+$total-columns      : 24
+$article-cols       : 16
+$nav-cols           : $total-columns - $article-cols
+$tab-height         : 520px
+$nav-height         : 616px
+$highlight          : darkorange
+
+@mixin buttons
+  &:hover
+    color: $highlight
+  text-align:   right
+  font-size:    1.2em
+ 
+  a
+    &:hover
+      color: $highlight
+    text-decoration: none
+    padding-left: 1em
+    text-align: right
+    font-size: 1.2em
+

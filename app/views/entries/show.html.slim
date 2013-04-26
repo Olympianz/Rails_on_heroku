@@ -1,53 +1,56 @@
 /p#notice = notice
 
-div id="avatar"
-  img src="http://res.cloudinary.com/dr9qjwuok/image/upload/v1366912252/anonymous_tnjvj0.jpg" alt="Avatar"
-
-div id="details"
-  h3 #{@entry.full_name}
+div id="article-content"
+  div id="avatar"
+    img src="http://res.cloudinary.com/dr9qjwuok/image/upload/v1366912252/anonymous_tnjvj0.jpg" alt="Avatar"
 
 
-  h4 Addresses
-  - @entry.addresses.each do |address|
-    ul
-      li 
-        strong = address.address_type.name
-        ':      
-        = address.street.titleize
-        ',
-        = address.city
-        ',
-        = address.state
-        ' 
-        = address.zip
-      
+  div id="details"
+    div class="details"
+      h2 #{@entry.full_name}
 
-  h4 Emails
-  - @entry.emails.each do |email|
-    ul
-      li = email.address_type.name
-      = link_to email.name, email.to_email
+      p =@entry.title
 
-  h4 Webs
-  - @entry.webs.each do |web|
-    ul
-      li = web.address_type.name
-      = link_to web.name, web.to_url
+      h4 Addresses
+      - @entry.addresses.each do |address|
+        ul
+          li = address.address_type.name
+                  
+          li
+            = address.street.titleize
+            ',
+            = address.city
+            ',
+            = address.state
+            ' 
+            = address.zip
+          
 
-  h4 Phone Numbers
-  - @entry.phones.each do |phone|
-    ul
-      li = phone.address_type.name
-      = link_to phone.name, phone.to_phone
+      h4 Emails
+      - @entry.emails.each do |email|
+        ul
+          li = email.address_type.name
+          li = link_to email.name, email.to_email
 
-  - content_for :head do 
-    == render 'comments/form'
-    - @entry.comments.each do |comment|
-      ul
-        li = comment.content
-      = comment.comment_time
+      h4 Webs
+      - @entry.webs.each do |web|
+        ul
+          li = web.address_type.name
+          li = link_to web.name, web.to_url
 
-table
-  tr
-    td = link_to 'Edit', edit_entry_path(@entry)
-    td = link_to 'Destroy', @entry, :confirm => 'Are you sure?', :method => :delete
+      h4 Phone Numbers
+      - @entry.phones.each do |phone|
+        ul
+          li = phone.address_type.name
+          li = link_to phone.name, phone.to_phone
+
+      - content_for :head do 
+        == render 'comments/form'
+        - @entry.comments.each do |comment|
+          ul
+            li = comment.content
+          = comment.comment_time
+
+div id="article-btn"
+  = link_to 'Edit', edit_entry_path(@entry)
+  = link_to 'Destroy', @entry, :confirm => 'Are you sure?', :method => :delete

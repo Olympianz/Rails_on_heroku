@@ -12,12 +12,10 @@ html
       nav 
         h2 Contacts
         = render :partial => "entries/index", :locals => { :entries =>  @entries}
-      table
-        tr
-          td = link_to "New Entry", new_entry_path
-          td
-          td = link_to "Home", entries_path
-    
+        .btn
+          = link_to "Add new contact", new_entry_path
+          / = link_to "Home", entries_path
+          / 
       article
         #notice = notice
         = yield 

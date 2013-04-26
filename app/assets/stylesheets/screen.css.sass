@@ -1,18 +1,10 @@
+@import base
 @import susy
 @import normalize
 @import compass
 
 $textcolor: rgb(32,32,32) 
 $bgcolor:   aliceblue
-
-
-$total-columns      : 24
-$article-cols       : 18
-$nav-cols           : $total-columns - $article-cols
-
-$column-width   : 4em
-$gutter-width   : 1em
-$grid-padding   : $gutter-width
 
 #content h1, h2, h3
   color: black
@@ -40,26 +32,31 @@ $grid-padding   : $gutter-width
   font-style: normal
   font-weight: 200
 
-.seleted
-  color: orange
+.selected
+  background-color: orange
 
 
-header, footer
-  clear: both
+
+header footer
+  clear: both  
   text-align: left
 
 nav
-  @include span-columns($nav-cols, $total-columns)
   input[type="search"]
-    clear: both
-    -webkit-appearance: searchfield
+    -webkit-appearance: searchfield 
     
+  form
+    @include prefix(1, $nav-cols)
   ul 
     padding:    0
     margin:     0
   .btn
+    @include buttons
+    margin: 5px, 0, 10px
     font-size: 1em
-  
+    @include span-columns($nav-cols, $nav-cols)
+
+  @include span-columns($nav-cols)
   ul#tab
     @include span-columns(1, $nav-cols)
     li
@@ -71,18 +68,21 @@ nav
       text-decoration: none
       font-size: .8em
   ul#entries
-    @include span-columns(5 omega, $nav-cols)
-    padding-left:   0
-    line-height:    1.25em
-    height: 40em
+    @include span-columns($nav-cols - 1 omega, $nav-cols)
+    height: $tab-height 
     overflow: scroll
 
     li
+      list-style: none outside none
+      padding: 7.5px  
+      height: 4.5em
       clear: both
       .image
-        @include span-columns(2, 5)
+        float: left
       .info
-        @include span-columns(3 omega, 5)
+        float: left
+        margin-top: 15px
+        margin-left: 15px
         .name
           margin-top: 0
           margin-bottom: 5px
@@ -103,19 +103,33 @@ nav
         text-decoration: none
 
 article
-  @include span-columns(18 omega, $total-columns)
-  #avatar
-    @include span-columns(7, 18)
+  @include span-columns($article-cols omega)
+  #article-content
+    #avatar
+      @include span-columns($article-cols/2, $article-cols)
 
-  #details
-    @include span-columns(11 omega, 18)
+    #details
+      min-height: 616px - 23px
+      bottom: 19px + 23px
+      @include span-columns($article-cols/2 omega, $article-cols)
 
-    ul
-      list-style-type: none
-      margin-top: 5px
-      margin-bottom: 10px
-      a 
-        text-decoration: none
+      div.details
+        position: relative
+        top: 200px
+        ul
+          list-style-type: none
+          margin-top: 5px
+          margin-bottom: 10px
+          li
+            display: inline-block
+            padding-right: 10px
+          a 
+            text-decoration: none
+    
+  #article-btn
+    clear: both
+    @include buttons
+    height: 23px
 
 
 
@@ -124,3 +138,17 @@ header
   padding:  0px
   margin:   0px
   border-color: lavender
+
+footer
+  clear: both
+  text-align: center
+
+#button, .btn
+  @include buttons
+  form
+    display: inline
+  .btn
+    background: none
+    border: none
+    padding: 0
+    @include buttons

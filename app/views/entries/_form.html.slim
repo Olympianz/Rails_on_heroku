@@ -1,22 +1,30 @@
 = simple_form_for(@entry) do |f|
   = f.error_notification
-  - @entry.addresses.build
-  - @entry.emails.build
-  - @entry.webs.build
-  - @entry.phones.build
 
-  .form-inputs
-    = f.input :first_name
-    = f.input :last_name
+  fieldset.form-inputs
+    legend  
+    = f.input :first_name, :placeholder => 'First Name', label:false,
+      :input_html => {:style => 'width: 7em'}
+    = f.input :last_name, :placeholder => 'Last Name', label:false,
+      :input_html => {:style => 'width: 7em'}
 
-    = f.simple_fields_for :addresses do |address|
-      = render 'addresses/form', :f => address
-    = f.simple_fields_for :emails do |email|
-      = render 'urls/email_form', :f => email
-    = f.simple_fields_for :webs do |web|
-      = render 'urls/web_form', :f => web
-    = f.simple_fields_for :phones do |phone|
-      = render 'urls/phone_form', :f => phone
+    div class="checkbox"
+      = f.input :title, :placeholder => 'Job Title', label:'Title',
+        :input_html => {:style => 'width: 15em'}
 
-  .form-actions
+  = f.simple_fields_for :addresses do |address|
+    = render 'addresses/form', :f => address
+  
+  = f.simple_fields_for :emails do |email|
+    = render 'urls/email_form', :f => email
+  
+  = f.simple_fields_for :webs do |web|
+    = render 'urls/web_form', :f => web
+  
+  = f.simple_fields_for :phones do |phone|
+    = render 'urls/phone_form', :f => phone
+
+  #buttons.for-actions
+    = link_to "Back", entries_path 
+    ' &nbsp;|
     = f.button :submit

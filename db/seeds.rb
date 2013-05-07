@@ -1,5 +1,6 @@
 require 'faker'
 
+AddressType.delete_all
 AddressType.create(:name => 'Home')
 AddressType.create(:name => 'Work')
 AddressType.create(:name => 'Other')
@@ -22,13 +23,13 @@ def random_type
 end
 
 Entry.delete_all
-5000.times do
+500.times do
     entry = Entry.new(
         first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
         title: Faker::Name.title
     )
 
-    rand(4).times do |i|
+    rand(2)+1.times do |i|
         entry.addresses.build(
             address_type_id: random_type,
             street: street,
@@ -38,21 +39,21 @@ Entry.delete_all
         )
     end
 
-    rand(4).times do |i|
+    rand(2)+1.times do |i|
         entry.emails.build(
             address_type_id: random_type,
             name: Faker::Internet.email
         )
     end
 
-    rand(4).times do |i|
+    rand(2)+1.times do |i|
         entry.webs.build(
             address_type_id: random_type,
             name: Faker::Internet.url
         )
     end
 
-    rand(2).times do |i|
+    rand(2)+1.times do |i|
         entry.phones.build(
             address_type_id: random_type,
             name: Faker::PhoneNumber.phone_number

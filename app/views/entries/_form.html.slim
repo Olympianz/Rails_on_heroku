@@ -11,6 +11,9 @@
     div class="checkbox"
       = f.input :title, :placeholder => 'Job Title', label:'Title',
         :input_html => {:style => 'width: 15em'}
+    div class="imageUpload"
+      = f.hidden_field(:avatar_cache)
+      = f.file_field(:avatar)
 
   = f.simple_fields_for :addresses do |address|
     = render 'addresses/form', :f => address

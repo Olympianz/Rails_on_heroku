@@ -11,7 +11,9 @@ class Entry < ActiveRecord::Base
   accepts_nested_attributes_for :phones,        :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :comments,      :allow_destroy => true, :reject_if => :all_blank
 
-  attr_accessible :first_name, :last_name, :title, :addresses_attributes, :emails_attributes, :webs_attributes, :phones_attributes, :comments_attributes
+  mount_uploader :avatar, AvatarUploader
+
+  attr_accessible :first_name, :last_name, :title, :addresses_attributes, :emails_attributes, :webs_attributes, :phones_attributes, :comments_attributes, :avatar, :avatar_cache
   # attr_nested_attributes_for :addresses, allow_destroy:true, reject_if :all_black
   # validates_presence_of [:email, :first, :last_name]
   # validate_email_format_of :email  

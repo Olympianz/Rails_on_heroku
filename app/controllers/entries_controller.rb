@@ -35,8 +35,7 @@ class EntriesController < ApplicationController
   end
 
   def update
-    flash_notice('updated') if @entry.update_attributes(
-        params[:entry])
+    flash_notice('updated') if @entry.update_attributes(params[:entry])
     respond_with(@entry)
   end
   

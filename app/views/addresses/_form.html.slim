@@ -8,7 +8,7 @@
       :input_html=>{:style=>'width: 8em'}
     = f.input :state, label:false, :placeholder=>'State',
       :input_html=>{:style=>'width: 5em'}
-    = f.input :zip, label:false, :placeholder=>'Zip',
+    = f.input :zip, label:false, :placeholder=>'Zip', :as => :string,
       :input_html=>{:style=>'width: 4em'}
     div class="checkbox"
       = f.check_box :_destroy

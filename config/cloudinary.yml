@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dr9qjwuok
+  api_key: '637431652818762'
+  api_secret: pXVENyD_U3ZGCGV3oANUe763WtU
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dr9qjwuok
+  api_key: '637431652818762'
+  api_secret: pXVENyD_U3ZGCGV3oANUe763WtU
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dr9qjwuok
+  api_key: '637431652818762'
+  api_secret: pXVENyD_U3ZGCGV3oANUe763WtU
+  enhance_image_tag: true
+  static_image_support: false

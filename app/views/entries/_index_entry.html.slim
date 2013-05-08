@@ -2,7 +2,7 @@
 li class=(selected ? 'selected' : '')
   = link_to(entry_path(entry, search: params[:search])) do
     div class="image"
-      img width="70" src="http://res.cloudinary.com/cisc5030-frankel/image/upload/c_fill,w_70/person.png" alt="Person"   
+      = avatar(entry,66)
     div class="info"
       p class="name"
         = entry.full_name

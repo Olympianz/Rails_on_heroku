@@ -188,9 +188,9 @@ DEPENDENCIES
   carrierwave
   cloudinary
   coffee-rails (~> 3.2.1)
-  compass (>= 0.12.2)
+  compass
   compass-normalize
-  compass-rails (>= 1.0.3)
+  compass-rails
   email_validator
   factory_girl_rails (~> 4.0)
   faker
@@ -201,7 +201,7 @@ DEPENDENCIES
   phony_rails
   rails (~> 3.2)
   rspec-rails
-  sass-rails (~> 3.2)
+  sass-rails
   simple_form
   simplecov
   slim

@@ -3,14 +3,11 @@
 
   fieldset.form-inputs
     legend  
-    = f.input :first_name, :placeholder => 'First Name', label:false,
-      :input_html => {:style => 'width: 7em'}
-    = f.input :last_name, :placeholder => 'Last Name', label:false,
-      :input_html => {:style => 'width: 7em'}
+    = f.input :first_name, :placeholder => 'First Name', label:false, :input_html => {:style => 'width: 7em'}
+    = f.input :last_name, :placeholder => 'Last Name', label:false, :input_html => {:style => 'width: 7em'}
 
     div class="checkbox"
-      = f.input :title, :placeholder => 'Job Title', label:'Title',
-        :input_html => {:style => 'width: 15em'}
+      = f.input :title, :placeholder => 'Job Title', label:'Title', :input_html => {:style => 'width: 15em'}
     div class="imageUpload"
       = f.hidden_field(:avatar_cache)
       = f.file_field(:avatar)

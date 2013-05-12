@@ -43,13 +43,6 @@ div id="article-content"
           li = phone.address_type.name
           li = link_to phone.name, phone.to_phone
 
-      - content_for :head do 
-        == render 'comments/form'
-        - @entry.comments.each do |comment|
-          ul
-            li = comment.content
-          = comment.comment_time
-
 div id="article-btn"
   = link_to 'Edit', edit_entry_path(@entry)
   '|

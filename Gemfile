@@ -14,10 +14,18 @@ gem 'carrierwave'
 group :development do
 	gem 'sqlite3'
 	gem 'slim-rails'
+    gem 'rspec-rails'
 end
 
 group :production do
 	gem 'pg'
+end
+
+group :test do
+    gem 'minitest-reporters'
+    gem 'simplecov', require: false
+    gem 'rspec-rails'
+    gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'json'

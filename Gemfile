@@ -7,6 +7,9 @@ gem 'simple_form'
 gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'email_validator'
+gem 'validate_url'
+gem 'phony_rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

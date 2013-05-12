@@ -18,6 +18,7 @@ class Entry < ActiveRecord::Base
   # validates_presence_of [:email, :first, :last_name]
   # validate_email_format_of :email  
 
+  validates :first_name, :last_name, :presence => true
 
 def first_name=(val)
    write_attribute(:first_name, val.titleize)

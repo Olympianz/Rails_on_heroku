@@ -70,7 +70,7 @@ describe EntriesController do
             @entry = FactoryGirl.create(:entry, first_name:"Chong", last_name:"Yue")
         end
         context "Use 'Edit' page" do
-            it "find the right entry" do
+            it "finds the right entry" do
                 put :update, id:@entry
                 assigns(:entry).should eq(@entry)
             end
@@ -86,54 +86,54 @@ describe EntriesController do
                 @entry.first_name.should == "Chong007"
                 @entry.last_name.should == "Yue007"
             end
+
+            it "redirects to updated entry" do
+                put :update, id:@entry, entry: FactoryGirl.attributes_for(:entry)
+                response.should redirect_to @entry
+            end
+        end
+
+        context "invalid entries" do
+            it "finds the right entry" do
+                put :update, id:@entry, entry: FactoryGirl.attributes_for(:invalid_entry)
+                assigns(:entry).should eq(@entry)
+            end
+            it "should not update the attributes" do
+                put :update, id:@entry, entry: FactoryGirl.attributes_for(:invalid_entry)
+                @entry.reload
+                @entry.first_name.should == "Chong"
+                @entry.last_name.should == "Yue"
+            end
+            it "redirects to the same entry" do
+                put :update, id:@entry, entry: FactoryGirl.attributes_for(:invalid_entry)
+                response.should render_template :edit
+            end
+
         end
     end
 
     describe "Create" do
-        it "creates a new entry" do
-            expect{
+        context "valide inputs" do
+            it "creates a new entry" do
+                expect{
+                    post :create, entry: FactoryGirl.attributes_for(:entry)
+                }.to change(Entry, :count).by(1)
+            end
+            it "uses the 'new' page" do
                 post :create, entry: FactoryGirl.attributes_for(:entry)
-            }.to change(Entry, :count).by(1)
+                response.should redirect_to Entry.last
+            end
         end
-        it "uses the 'new' page" do
-            post :create, entry: FactoryGirl.attributes_for(:entry)
-            response.should redirect_to Entry.last
+
+        context "invalid inputs" do
+            it "creates no entry" do
+                expect{post :create, entry: FactoryGirl.attributes_for(:invalid_entry)}.to_not change(Entry, :count)
+            end
+            it "stay on the 'new' page" do
+                post :create, entry: FactoryGirl.attributes_for(:invalid_entry)
+                response.should render_template :new
+            end
         end
     end
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
 

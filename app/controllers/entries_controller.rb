@@ -29,7 +29,9 @@ class EntriesController < ApplicationController
     if(@entry.save)
         flash_notice('created')
     else
+        # :nocov:
         build_children
+        # :nocov:
     end
     respond_with(@entry)
   end
@@ -46,6 +48,7 @@ class EntriesController < ApplicationController
   end
 
   private
+  # :nocov:
   def get_entries
       criteria = 
           if params[:search]
@@ -56,6 +59,7 @@ class EntriesController < ApplicationController
           end
       @entries = Entry.where(criteria).order('last_name, first_name')
   end
+  # :nocov:
 
   def find_entry
       @entry = Entry.find(params[:id])
@@ -65,7 +69,7 @@ class EntriesController < ApplicationController
   def flash_notice(msg)
       flash[:notice] = "#{@entry.full_name} #{msg}"
   end
-
+  # :nocov:
   def build_children
       @entry ||= Entry.new
       @entry.class.reflect_on_all_associations.find_all do |a|
@@ -74,4 +78,5 @@ class EntriesController < ApplicationController
           @entry.send(attr).build
       end
   end
+  # :nocov:
 end

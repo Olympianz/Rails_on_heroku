@@ -1,4 +1,5 @@
 class Web < Url
+    validates :name, :url => true
     def self.prefix
        'http://'
     end
